@@ -1,186 +1,95 @@
+	</div>
+		<div id="wiCheckoutPaymentCreditCardInfo" style="display: none">
+			<div class="d-flex mt-2">
+					<img alt="Amex" src="/glassnickel/Images/amex.gif" />
+									<img alt="Visa" src="/glassnickel/Images/visa.gif" />
+									<img alt="Mastercard" src="/glassnickel/Images/mastercard.gif" />
+									<img alt="Discover" src="/glassnickel/Images/discover.gif" />
+			</div>
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+				<div class="form-group row">
+					<label for="Payment_CCNumber" class="col-4 col-form-label">
+						Card Number:
+					</label>
+					<div class="col-8">
+						<input autocomplete="off" class="form-control" id="Payment_CCNumber" name="Payment_CCNumber" required="required" type="text" value="" />
+						<div class="invalid-feedback">
+							<span class="field-validation-valid" data-valmsg-for="Payment_CCNumber" data-valmsg-replace="true"></span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="Payment_ExpMonth" class="col-4 col-form-label">
+						Exp. Date:
+					</label>
+					<div class="col-8">
+						<div class="d-flex">
+							<select class="form-control custom-select" data-val="true" data-val-number="The field Payment_ExpMonth must be a number." data-val-required="The Payment_ExpMonth field is required." id="Payment_ExpMonth" name="Payment_ExpMonth"><option selected="selected" value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+</select>
+							<select class="form-control custom-select" data-val="true" data-val-number="The field Payment_ExpYear must be a number." data-val-required="The Payment_ExpYear field is required." id="Payment_ExpYear" name="Payment_ExpYear"><option selected="selected" value="2019">2019</option>
+<option value="2020">2020</option>
+<option value="2021">2021</option>
+<option value="2022">2022</option>
+<option value="2023">2023</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+<option value="2026">2026</option>
+<option value="2027">2027</option>
+<option value="2028">2028</option>
+</select>
+						</div>
+						<div class="invalid-feedback">
+							<span class="field-validation-valid" data-valmsg-for="Payment_ExpMonth" data-valmsg-replace="true"></span>
+						</div>
+					</div>
+				</div>
+				<div class="form-group row">
+					<label for="Payment_CVV" class="col-4 col-form-label">
+						Security Code:
+					</label>
+					<div class="col-8">
+						<input autocomplete="off" class="form-control" id="Payment_CVV" name="Payment_CVV" required="required" type="text" value="" />
+						<a class="wcCheckoutCVVInfo" href="#">What&#39;s this</a>
+						<div class="invalid-feedback">
+							<span class="field-validation-valid" data-valmsg-for="Payment_CVV" data-valmsg-replace="true"></span>
+						</div>
+					</div>
+				</div>
+					<div class="form-group row">
+						<label for="Payment_AVSZip" class="col-4 col-form-label">
+							Billing Zip Code:
+						</label>
+						<div class="col-8">
+							<input autocomplete="off" class="form-control" id="Payment_AVSZip" name="Payment_AVSZip" required="required" type="text" value="" />
+							<div class="invalid-feedback">
+								<span class="field-validation-valid" data-valmsg-for="Payment_AVSZip" data-valmsg-replace="true"></span>
+							</div>
+						</div>
+					</div>
+					</div>
+		<div id="wiCheckoutPaymentPayLaterInfo" style="display: none">
+					</div>
 
-
-
-		<title>Weborder</title>
-
-		<meta name="description" content="Order food online" />
-	<link href="/glassnickel/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-	
-<link rel="stylesheet" href="https://weborder3.microworks.com/glassnickel/custom/bootstrap.css" />
-
-<link rel="stylesheet" href="https://weborder3.microworks.com/glassnickel/Content/bootstrap-datepicker.css" />
-
-	<link rel="stylesheet" href="https://weborder3.microworks.com/glassnickel/custom/CustomSite_vars.css" />
-<link href="https://weborder3.microworks.com/glassnickel/Content/css-5.0.141.1287?v=Ur_-G7MmcQIqfLKTjsbo0zceeiux27j5i0GtxFqlh5c1" rel="stylesheet"/>
-	<link rel="stylesheet" href="https://weborder3.microworks.com/glassnickel/custom/Specials.css" />
-
-
-
-
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://weborder3.microworks.com/glassnickel/Scripts/umd/popper.min.js"></script>
-<script src="https://weborder3.microworks.com/glassnickel/Scripts/bootstrap.min.js"></script>
-<script src="https://weborder3.microworks.com/glassnickel/Scripts/bootstrap-datepicker.min.js"></script>
-<script src="https://weborder3.microworks.com/glassnickel/Scripts/jquery.unobtrusive-ajax.min.js"></script>
-<script src="https://weborder3.microworks.com/glassnickel/Scripts/jquery.blockUI.js"></script>
-
-
-<script type="text/javascript">
-		
-		if (top.location != self.location) {
-			top.location = self.location.href;
-		}
-		
-
-	function WeborderRoot(pValue) {
-		return pValue.replace("~/", '/glassnickel/');
-	}
-
-	var GLOBAL__SESSION_TIMEOUT_WARNING_CAPTION="Stay logged in?";
-var GLOBAL__SESSION_TIMEOUT_WARNING_MESSAGE="Your Weborder session will expire in <b><span id='timeout'></span></b> seconds.<br/>Would you like to stay signed in?";
-var GENERAL__CULTURE="en-US";
-
-
-	var CULTURE_CODE = GENERAL__CULTURE.split("-")[1];
-</script>
-
-	<link href="https://weborder3.microworks.com/glassnickel/custom/CustomSite.css" type="text/css" rel="stylesheet" />
-		<link href="https://weborder3.microworks.com/glassnickel/custom/site_overrides.css" type="text/css" rel="stylesheet" />
-
-
-
-
-	
-
-
-
-
-
-
-
-
-			<script type="text/javascript" src="https://weborder3.microworks.com/glassnickel/Scripts/add2home.js"></script>
-			<link rel="stylesheet" type="text/css" href="/glassnickel/Content/add2home.css" />
-			<link rel="shortcut icon" type="image/png" href="/glassnickel/custom/iphone57.png" />
-			<link rel="apple-touch-icon" href="/glassnickel/custom/iphone57.png" />
-			<link rel="apple-touch-icon" sizes="72x72" href="/glassnickel/custom/iphone72.png" />
-			<link rel="apple-touch-icon" sizes="114x114" href="/glassnickel/custom/iphone114.png" />
-			<meta name="apple-mobile-web-app-capable" content="yes" />
-
-
-
-
-
-</head>
-<body>
-	
-
-	
-
-
-
-
-
-
-
-<form action="/glassnickel/Login/Simple?ReturnURL=%2Fglassnickel%2FCheckout" id="signInForm" method="post">	<header>
-		<a href="/glassnickel/">
-			<img alt="Organization Logo" src="/glassnickel/custom/glass-nickel-logo.png" />
-		</a>
-	</header>
-	<div class="container px-0">
-		<h1 class="h3 mt-2 mb-3 font-weight-normal">PLEASE SIGN IN</h1>
-
-		<input aria-label="Email" autofocus="" class="form-control" data-val="true" data-val-required="Email is required" id="Email" name="Email" placeholder="Email" type="email" value="" />
-
-		<input aria-label="Password" class="form-control" data-val="true" data-val-required="Password is required" id="Password" name="Password" placeholder="Password" type="password" value="" />
-
-
-		<div class="my-2">
-			<div class='custom-control custom-checkbox'>
- <input type='checkbox' class='custom-control-input' name='RememberMe' id='RememberMe' value='true' CHECKED/>
- <label class='custom-control-label' for='RememberMe'>Remember Me</label>
- <input type='hidden' name='RememberMe' value='false'/>
-</div>
+			</div>
+		</div>
+	</div>
 
 		</div>
-
-
-		<button class="btn btn-lg btn-primary btn-block mt-1" type="submit">Sign In</button>
-
-		<a href="/glassnickel/Login/ForgotPassword">Forgot Password?</a>
-
-		<br />
-		<br />
-		<fieldset class="divider">
-			<legend>New Users</legend>
-
-			<button class="btn btn-lg btn-secondary btn-block " type="button" data-url="/glassnickel/Register?ReturnURL=%2Fglassnickel%2FCheckout">Register Now</button>
-
-		</fieldset>
-	</div>
+		</div>
+	<hr class="my-4" />
+	<button type="button" class="btn btn-primary btn-block mt-3" id="wiCheckoutButtonNext">Next</button>
 </form>
 
-
-
-	
-
-	
-
-<div class="modal" id="MB">
-	<div class="modal-dialog">
-		<div class="modal-content">
-			<div class="modal-header">
-				<h5 class="modal-title"></h5>
-			</div>
-
-			<div class="modal-body">
-
-			</div>
-
-			<div class="modal-footer">
-				<button id="mbOK" class="btn btn-primary" data-dismiss="modal">OK</button>
-				<button id="mbYes" class="btn btn-primary" data-dismiss="modal">Yes</button>
-				<button id="mbNo" class="btn btn-primary" data-dismiss="modal">No</button>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-
-<script src="/glassnickel/bundles/Base-5.0.141.1287?v=YTEdKbu67Z9m-Oxcf87pSgLj30TJmndY_jsF-QP4jq81"></script>
-
-
-<script src="/glassnickel/bundles/CallCenter-5.0.141.1287?v=veF4AUa7hKO52a7psMaf2nfl5mAhEf_ou2Qsobv4b7E1"></script>
-
-
-
-
-
-
-<input type="hidden" id="clientWidth" value="9999" />
-<input type="hidden" id="clientHeight" value="9999" />
-
-
-
-
-
-	
-
-
-
-
-
-</body>
-</html>
 
